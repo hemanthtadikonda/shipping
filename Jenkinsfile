@@ -1,24 +1,26 @@
 pipeline {
     agent any
-
     stages {
-        stage('compile code') {
+        stage('code compile') {
             steps {
-                //sh '/home/centos/maven/bin/mvn clean package'
-                //sh '/home/centos/maven/bin/mvn  package'
-                echo 'Hello World'
+               //sh '/home/centos/maven/bin/mvn clean package'
+               //sh '/home/centos/maven/bin/mvn  package'
+               print 'OK'
             }
         }
-        stage('test') {
+        stage('test cases') {
             steps {
-                //sh '/home/centos/maven/bin/mvn test'
-                echo 'Hello World'
+               //sh '/home/centos/maven/bin/mvn test'
+               print 'OK'
             }
         }
         stage('code quality') {
+            //parameters {
+            //    password(name: 'SONAR.PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+            //}
             steps {
-                // sh 'sonar qube  maven java command'
-                echo 'Hello World'
+               // sh 'sonar qube  maven java command'
+               print 'OK'
             }
         }
         stage('code security') {
@@ -26,15 +28,20 @@ pipeline {
                 expression { env.BRANCH_NAME == "main" }
             }
             steps {
-                echo 'we go there'
+               //sh 'checks with SAST & SCA'
+               print 'OK'
             }
         }
         stage('Release') {
             when {
-                expression { env.TAG_NAME ==~ ".*" }
+                expression { env.TAG_NAME ==~ ".*"}
             }
+            //parameters {
+            //    password(name: 'NEXUS.PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
+            //}
             steps {
-                echo 'Hello World'
+               //sh 'Upload artifact to nexus repo'
+               print 'OK'
             }
         }
     }
