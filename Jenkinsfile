@@ -1,18 +1,18 @@
 node {
    properties([
       parameters([
-         [$class: 'PasswordParameterDefinition',
-          name: 'SONARPASSWORD',
-          description: "Enter Sonar password"
+         [$class      : 'PasswordParameterDefinition',
+          name        : 'SONARPASSWORD',
+          description : "Enter Sonar password"
          ],
-         [$class: 'PasswordParameterDefinition',
-          name: 'NEXUSUSERNAME',
+         [$class      : 'PasswordParameterDefinition',
+          name        : 'NEXUSUSERNAME',
           defaultValue: 'admin' ,
-          description: "Enter Nexus Username"
+          description :  "Enter Nexus Username"
          ],
-         [$class: 'PasswordParameterDefinition',
-          name: 'NEXUSPASSWORD',
-          description: "Enter Nexus password"
+         [$class      : 'PasswordParameterDefinition',
+          name        : 'NEXUSPASSWORD',
+          description : "Enter Nexus password"
          ],
       ]),
    ])
