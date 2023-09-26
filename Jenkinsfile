@@ -6,8 +6,7 @@ node {
           description : "Enter Sonar password"
          ],
          [$class      : 'PasswordParameterDefinition',
-          name        : 'NEXUSUSERNAME',
-          defaultValue: 'admin' ,
+          name        : 'NEXUSUSERNAME' ,
           description :  "Enter Nexus Username"
          ],
          [$class      : 'PasswordParameterDefinition',
