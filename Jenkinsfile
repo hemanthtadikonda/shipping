@@ -32,10 +32,9 @@ node {
    if( env.BRANCH_NAME == "main" && env.TAG_NAME == null ) {
       stage('code Quality'){
          env.SONARPASS = "${params.SONARPASSWORD}"
-         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: 'SONARPASS']]]) {
+
             sh 'echo ${SONARPASS}'
           //sh 'sonar-scanner -Dsonar.host.url=http://172.31.89.117:9000 -Dsonar.login=admin -Dsonar.password=${SONARPASS} -Dsonar.projectKey=shipping -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
-         }
       }
    }
    if( env.BRANCH_NAME == "main" && env.TAG_NAME == null ) {
@@ -48,12 +47,12 @@ node {
       stage('App Release') {
          env.nexususer = "${params.NEXUSUSERNAME}"
          env.nexuspass = "${params.NEXUSPASSWORD}"
-         wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: 'nexuspass']]]) {
+
             //sh 'cp target/shipping-1.0.jar shipping.jar; zip -r shipping-${TAG_NAME}.zip shipping.jar VERSION ${schemadir}'
             //sh 'curl -v -u ${nexususer}:${nexuspass} --upload-file shipping-${TAG_NAME}.zip http://172.31.24.24:8081/repository/shipping/shipping-${TAG_NAME}.zip'
             sh 'echo ${nexuspass}'
             sh 'echo ${nexususer}'
-         }
+
       }
    }
 }
