@@ -31,9 +31,9 @@ node {
    }
    if( env.BRANCH_NAME == "main" && env.TAG_NAME == null ) {
       stage('code Quality'){
-         env.SONARPASS = "${params.SONARPASSWORD}"
-         wrap([$class: "MaskPasswordsBuildWrapper", varPasswordPairs: [[password: 'SONARPASS']]]) {
-            sh 'echo ${SONARPASS}'
+         env.sonarpass = "${params.SONARPASSWORD}"
+         wrap([$class: "MaskPasswordsBuildWrapper", varPasswordPairs: [[password: 'sonarpass']]]) {
+            sh 'echo ${sonarpass}'
           //sh 'sonar-scanner -Dsonar.host.url=http://172.31.89.117:9000 -Dsonar.login=admin -Dsonar.password=${SONARPASS} -Dsonar.projectKey=shipping -Dsonar.qualitygate.wait=true -Dsonar.java.binaries=./target'
          }
       }
