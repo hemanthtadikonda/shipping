@@ -7,7 +7,7 @@ node {
          ],
          [$class: 'PasswordParameterDefinition',
           name: 'NEXUS USERNAME',
-          defaultValue: 'admin'
+          defaultValue: 'admin' ,
           description: "Enter Nexus Username"
          ],
          [$class: 'PasswordParameterDefinition',
