@@ -5,7 +5,7 @@ node {
           name        : 'SONARPASSWORD',
           description : "Enter Sonar password"
          ],
-         [$class      : 'PasswordParameterDefinition',
+         [$class      : 'stringParameterDefinition',
           name        : 'NEXUSUSERNAME' ,
           description :  "Enter Nexus Username"
          ],
