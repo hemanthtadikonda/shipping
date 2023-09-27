@@ -18,7 +18,7 @@ node {
 
    stage('compile') {
       //sh '/home/centos/maven/bin/mvn package'
-      sh 'echo ${params.SONARPASSWORD}'
+      sh "echo ${params.SONARPASSWORD}"
       print 'ok'
    }
 
