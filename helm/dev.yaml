@@ -1,0 +1,10 @@
+component: shipping
+port: 8080
+service_type: ClusterIP
+PARAMETERS: shipping.dev.CART_ENDPOINT,CART_ENDPOINT shipping.dev.DB_HOST,DB_HOST
+env: dev
+schema:
+  enabled: true
+  DB_TYPE: sql
+
+
